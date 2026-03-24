@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我在云南吹风的日子（一） - 面条团的面条的世界</title>
+  <meta name="description" content="从北京到云南大理，徒步苍山玉带路，探访寂照庵，在亚朵酒店放空灵魂。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --bg-card: #ffffff;
+      --text: #2c2c2c;
+      --text-muted: #6b6b6b;
+      --accent: #8b7355;
+      --accent-hover: #6d5a42;
+      --border: #e8e6e3;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans SC', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.8;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 32px 0 24px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    article {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 48px 40px 64px;
+      box-shadow: var(--shadow);
+      margin-bottom: 48px;
+    }
+
+    .article-header {
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .article-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .article-meta {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .article-body {
+      font-size: 16px;
+    }
+
+    .article-body p {
+      margin-bottom: 20px;
+      text-indent: 2em;
+    }
+
+    .article-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .article-body h3 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 32px 0 16px;
+      color: var(--text);
+    }
+
+    .article-body .intro {
+      margin-bottom: 24px;
+    }
+
+    .article-body .intro p {
+      margin-bottom: 8px;
+    }
+
+    .article-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 24px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .article-body .quote-block {
+      background: #f7f7f7;
+      padding: 12px 16px 12px 20px;
+      margin: 24px 0;
+      border-left: 3px solid #d9d9d9;
+    }
+
+    .article-body .quote-block p {
+      margin-bottom: 6px;
+      text-indent: 0;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .article-body .quote-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .article-body .quote-block p strong {
+      color: var(--text);
+    }
+
+    .article-body .quote-block p em {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .article-footer {
+      margin-top: 20px;
+      padding-top: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .article-footer-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .article-footer-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .article-footer-thanks {
+      font-size: 16px;
+      color: var(--text);
+      font-style: normal;
+    }
+
+    .article-footer-thanks::before {
+      content: '"';
+      font-size: 24px;
+      font-family: Georgia, serif;
+      color: var(--text-muted);
+      vertical-align: -4px;
+    }
+
+    .article-footer-thanks::after {
+      content: '"';
+      font-size: 24px;
+      font-family: Georgia, serif;
+      color: var(--text-muted);
+      vertical-align: -4px;
+    }
+
+    .like-author-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #ff5a5f;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 40px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      margin-top: 8px;
+      line-height: 1;
+    }
+
+    .like-author-btn:hover {
+      background: #ff4449;
+    }
+
+    .like-author-btn:active {
+      transform: scale(0.98);
+    }
+
+    .like-author-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      display: block;
+      vertical-align: middle;
+    }
+
+    /* 打赏弹窗 */
+    .reward-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .reward-modal.active {
+      display: flex;
+    }
+
+    .reward-modal-content {
+      position: relative;
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      max-width: 280px;
+      max-height: 65vh;
+      overflow: auto;
+    }
+
+    .reward-modal-close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: #f0f0f0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .reward-modal-close:hover {
+      background: #e0e0e0;
+    }
+
+    .reward-modal-content img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* 回到顶部按钮 - 位于文章模块外侧 */
+    .back-to-top {
+      position: fixed;
+      right: max(24px, calc(50vw - 400px));
+      bottom: 62px;
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s, background 0.2s, border-color 0.2s;
+      z-index: 100;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--bg-card);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .back-to-top:focus {
+      outline: none;
+      border-color: #6d8aa8;
+      color: var(--text);
+    }
+
+    .back-to-top:focus:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .back-to-top svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (max-width: 600px) {
+      article {
+        padding: 32px 24px 48px;
+      }
+
+      .article-title {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html#articles" class="back-link">← 返回文章列表</a>
+
+    <article>
+      <header class="article-header">
+        <h1 class="article-title">我在云南吹风的日子（一）</h1>
+        <p class="article-meta">面条团的面条 · 2025-03-24</p>
+      </header>
+
+      <div class="article-body">
+        <div class="intro">
+          <p>从北京到云南路途遥远，飞过去是最佳选择。虽说可以直飞大理，但我选择先飞昆明，坐高铁去大理。一来航班选择空间大，二来可以有更多的体验。</p>
+        </div>
+
+        <img src="../image/article/16.png" alt="飞机上的风景">
+
+        <p>27 号中午飞临昆明上空，窗外美如画，随着下降高度越来越低，可以看到土壤的颜色是红褐色，心里一阵暖意升起。</p>
+
+        <p>落地后，往提取行李处走的路上偶遇凤凰卫视记者胡玲。</p>
+
+        <img src="../image/article/1.webp" alt="偶遇凤凰卫视记者胡玲">
+
+        <p>随后乘坐机场大巴直达昆明南站，然后搭乘高铁去大理。</p>
+
+        <img src="../image/article/2.webp" alt="乘坐机场大巴直达昆明南站">
+
+        <p>也许是国庆假期还没有开始，我所在的车厢没几个人，好像给我开了一趟专列似的。大理的一切对我来说都是未知的。探索「新大陆」，出发吧。</p>
+
+        <p>高铁两个半小时的车程时间里，只做了一件事，看着窗外的一切慢慢地发呆。</p>
+
+        <img src="../image/article/3.webp" alt="路上的风景">
+
+        <p>这样湛蓝的天空，印象中只有小时候才看到过，北京虽然在 2015 年后，空气质量有了很大的改善，但是即便最好的天气里，天空也不曾像这样湛蓝。</p>
+
+        <p>一路上不知道经过了多少个隧道，看见了蓝天、看见了白云、看见了乡村小道、山头、桥梁、植被茂密的树林等等，也看见了自己。</p>
+
+        <p>下午5点多，列车缓缓开进了大理站。</p>
+
+        <p>第二天(28号)准备徒步苍山玉带路，下午去洱海边才村码头附近看海溜达。</p>
+
+        <img src="../image/article/4.webp" alt="苍山玉带路导览示意图">
+
+        <h3>苍山共有三条索道</h3>
+
+        <p><strong>感通索道</strong>，起点在感通寺附近。可抵达清碧溪、苍山大峡谷，沿途自然风光秀丽。</p>
+
+        <p><strong>洗马潭索道</strong>，起点在天龙八部影视城附近，贯穿苍山山腰至山顶。是苍山最长、落差最大的索道，可直达海拔约3920米的洗马潭景区，欣赏高山湖泊和杜鹃花海。</p>
+
+        <p><strong>中和索道</strong>，起点在大理古城西侧附近。露天式吊篮索道，直达中和寺，适合轻松游览，俯瞰洱海和大理古城全景。</p>
+
+        <p>玉带路这个名字起的真好，字面意思一条白色或黄色的玉带挂在苍山半山腰上，从左到右共计 11.5KM 徒步路线。</p>
+
+        <p>我的计划是乘坐感通索道上去，徒步玉带路，最后乘坐中和索道下山。</p>
+
+        <p>来之前，我已了解到，起点附近有一个寺庙：寂照庵，修建于明朝，这次正好去拜访一下。</p>
+
+        <img src="../image/article/5.webp" alt="苍山景区门口">
+
+        <p>买了苍山门票和索道票后，我从工作人员处了解到感通原来指的是感通寺。索性两个地方一起逛完，再坐索道上山。</p>
+
+        <img src="../image/article/6.webp" alt="感通寺">
+
+        <p>从寺庙门口牌子的介绍中得知，明朝大才子杨慎(三国演义主题曲的词出自他写的诗-临江仙)被贬云南后，来这里游历讲学过，顿生敬畏。跨越几百年时间，我们在不同的时间来到同一个地方。</p>
+
+        <img src="../image/article/7.webp" alt="感通寺门口">
+
+        <p>临近午饭时间来到了寂照庵，一座始建于明初的尼姑庵。以花敬佛，不烧香火。寂照庵用鲜花代替香火供奉佛祖。庵内无处不点缀着种类繁多、造型别致的多肉植物和鲜花。</p>
+
+        <p>中午还提供素斋，吃饭的人特别多。</p>
+
+        <img src="../image/article/8.webp" alt="寂照庵">
+
+        <p>离开这里，前往感通索道乘坐处上山。</p>
+
+        <p>随着索道高度的上升，洱海及海西尽收眼底。下方则是苍山地质公园成片的原始森林。</p>
+
+        <img src="../image/article/9.webp" alt="索道俯瞰洱海">
+
+        <p>途中路过玲珑棋局，可俯视之。相当漂亮。</p>
+
+        <img src="../image/article/10.webp" alt="玲珑棋局">
+
+        <p>来到了本次徒步的起点</p>
+          
+        <img src="../image/article/11.webp" alt="玉带路起点">
+
+        <p>玉带路，一路都是平整的石板路，也适合休闲散步。刚开始走时偶遇一个学生团。苍山脚下、大理古城西边坐落着一所大学——大理大学。她们好像是那里的学生。</p>
+
+        <img src="../image/article/12.webp" alt="玉带路">
+        <img src="../image/article/13.webp" alt="玉带路">
+
+        <p>途中也有不少供游人休息的凉亭。走到后半程时，下起了朦胧细雨、小雨，再后来中雨，还好我带了雨伞、雨衣。</p>
+
+        <img src="../image/article/14.webp" alt="玉带路">
+
+        <p>下午3 点多到达中和寺，进去简单溜达了一圈后，就来到了和中和寺挨着的一个二层建筑的茶馆，门前一大片开阔地，非常适合拍照观赏洱海景观。</p>
+
+        <!-- <img src="../image/article/13.webp" alt="中和寺茶馆观洱海"> -->
+
+        <p>茶馆下方是一个供游客休息的长廊，在这里收拾好随身携带的东西后，径直去中和索道售票处。和售票员一阵感叹徒步玉带路真好，售票小哥纯真的样子和我说，他们平时也经常走。</p>
+
+        <p>虽说来之前有做功课，了解中和索道是开放式的，但是坐上去后，不免有一点害怕和惶恐。不过没一会儿，这种感觉就没有了。</p>
+          
+        <p>随之而来映入眼帘的是两边高大挺拔的原始树木，而脚下是顺着索道行进方向的一条空旷地带，前方远处湛蓝色的天空和白云，下边是洱海。</p>
+
+        <img src="../image/article/15.webp" alt="中和索道">
+
+        <p>置身这样安静的环境中，一种宁静的感觉油然而生。我感觉自己太幸福了，这种感受好像是第一次体验到，完全意料之外。进一步说，宁静的感觉是内心充盈、全身舒畅、心怀敬畏和感恩于一体。</p>
+
+        <p>在大理入住的亚朵酒店，关于亚朵酒店，我多少了解一点。</p>
+          
+        <p>当晚回到酒店入睡前，坐在窗边发了很久的呆。翻出了视频号【亚朵 ATOUR】，简介是这样说的。</p>
+
+        <div class="quote-block">
+          <p>亚朵，始于住宿的生活方式品牌</p>
+          <p>创始人于旅途中邂逅了滇缅边境的亚朵村</p>
+          <p>高山峡谷小村庄，民风淳朴有信仰</p>
+          <p>以此为名，开启了一段人文、温暖、有趣的旅程</p>
+          <p>Life is ATOUR，在亚朵，总有不期而遇的温暖</p>
+        </div>
+
+        <p>云南真的是放空灵魂的地方，能触动你的心的地方。</p>
+          
+        <p>据我所知，亚朵创始人王海军创办亚朵酒店前，去了不丹、尼泊尔旅行，在那里，所见、所听、所闻让他深受感动。</p>
+          
+        <p>那里的人们无论是大人还是小朋友精神充盈、生活快乐无忧无虑、待人真诚淳朴友善。所以他想，我们国内有没有这样的地方呢？</p>
+          
+        <p>所以就有了上文所描述的，在怒江边上意外邂逅亚朵村 —— 高山峡谷小村庄，民风淳朴有信仰。</p>
+          
+        <p>随后回去创立了亚朵酒店，从我多次入住的体验看，亚朵酒店践行了初心，把宁静真正带回到了城市生活中。</p>
+      </div>
+
+      <footer class="article-footer">
+        <img src="../image/avator.png" alt="作者头像" class="article-footer-avatar">
+        <div class="article-footer-name">面条团的面条</div>
+        <span class="article-footer-thanks">感谢投喂</span>
+        <button type="button" class="like-author-btn" id="likeAuthorBtn" aria-label="喜欢作者">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+          </svg>
+          喜欢作者
+        </button>
+      </footer>
+    </article>
+  </div>
+
+  <!-- 回到顶部 -->
+  <button type="button" class="back-to-top" id="backToTop" aria-label="回到顶部" title="回到顶部">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- 打赏弹窗 -->
+  <div class="reward-modal" id="rewardModal" role="dialog" aria-modal="true" aria-label="打赏二维码">
+    <div class="reward-modal-content">
+      <button type="button" class="reward-modal-close" id="rewardModalClose" aria-label="关闭">×</button>
+      <img src="../image/reward.png" alt="打赏二维码">
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('likeAuthorBtn');
+      var modal = document.getElementById('rewardModal');
+      var closeBtn = document.getElementById('rewardModalClose');
+
+      function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      btn.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+      });
+
+      // 回到顶部
+      var backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', function() {
+        backToTop.classList.toggle('visible', window.scrollY > 300);
+      });
+      backToTop.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>
