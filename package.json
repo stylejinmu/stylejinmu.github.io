@@ -1,0 +1,22 @@
+{
+  "name": "my-website",
+  "version": "1.0.0",
+  "description": "个人站点",
+  "main": "index.js",
+  "scripts": {
+    "serve": "browser-sync start --server --files \"*.html,content/**/*.html\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stylejinmu/stylejinmu.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stylejinmu/stylejinmu.github.io/issues"
+  },
+  "homepage": "https://github.com/stylejinmu/stylejinmu.github.io#readme",
+  "devDependencies": {
+    "browser-sync": "^3.0.4"
+  }
+}
