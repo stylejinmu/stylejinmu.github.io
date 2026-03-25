@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doodle 历史 - 面条团的面条的世界</title>
+  <meta name="description" content="历史 Doodle 专题时间线：按时间浏览往期节气与节日插画。">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --bg-card: #ffffff;
+      --text: #2c2c2c;
+      --text-muted: #6b6b6b;
+      --accent: #8b7355;
+      --accent-hover: #6d5a42;
+      --border: #e8e6e3;
+      --shadow: 0 2px 12px rgba(0,0,0,0.06);
+      --nav-w: 156px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans SC', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .page-body {
+      margin-left: var(--nav-w);
+      padding-top: 32px;
+      min-height: 100vh;
+      padding-bottom: 48px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav.tabs {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: var(--nav-w);
+      z-index: 100;
+      padding: 28px 12px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      box-sizing: border-box;
+      border-right: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      padding: 0 4px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .nav-brand-logo {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .nav-brand-name {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.35;
+      letter-spacing: 0.04em;
+      text-align: center;
+      overflow-wrap: break-word;
+    }
+
+    .nav-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tab {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 8px 8px 8px 12px;
+      border-radius: 6px;
+      transition: color 0.2s ease, background-color 0.2s ease;
+      white-space: nowrap;
+      text-decoration: none;
+      display: block;
+    }
+
+    .tab:hover {
+      color: var(--accent);
+      background-color: rgba(139, 115, 85, 0.08);
+    }
+
+    .tab[aria-current="page"] {
+      color: var(--accent);
+      background-color: rgba(139, 115, 85, 0.1);
+    }
+
+    .history-page-header {
+      margin-bottom: 32px;
+    }
+
+    .history-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    .timeline {
+      list-style: none;
+      margin: 0;
+      padding: 4px 0 0 32px;
+      border-left: 2px solid var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -39px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg-card);
+      box-shadow: 0 0 0 1px var(--border);
+    }
+
+    .timeline-date {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .timeline-heading {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .timeline-card {
+      display: block;
+      background: var(--bg-card);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .timeline-card:hover {
+      border-color: rgba(139, 115, 85, 0.35);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .timeline-card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .timeline-card-img-wrap {
+      margin: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .timeline-card-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+
+    .timeline-card-body {
+      padding: 16px 18px 18px;
+    }
+
+    .timeline-card-excerpt {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .timeline-card-cta {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .timeline-card:hover .timeline-card-cta {
+      color: var(--accent-hover);
+    }
+
+    @media (max-width: 720px) {
+      :root { --nav-w: 108px; }
+      nav.tabs { padding: 20px 8px 16px; }
+      .nav-brand { margin-bottom: 20px; gap: 8px; }
+      .nav-brand-logo { width: 44px; height: 44px; }
+      .nav-brand-name { font-size: 13px; }
+      .page-body { padding-top: 24px; }
+      .tab { font-size: 14px; padding: 6px 4px 6px 8px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="tabs" aria-label="主导航">
+    <a class="nav-brand" href="index.html">
+      <img class="nav-brand-logo" src="image/logo.png" alt="面条团的面条">
+      <span class="nav-brand-name">面条团的面条</span>
+    </a>
+    <div class="nav-menu">
+      <a class="tab" href="index.html#doodle">Doodle</a>
+      <a class="tab" href="index.html#articles">文章</a>
+      <a class="tab" href="index.html#stickers">表情</a>
+      <a class="tab" href="index.html#contact">联系我</a>
+    </div>
+  </nav>
+
+  <div class="page-body">
+    <div class="container">
+      <main>
+        <header class="history-page-header">
+          <h1 class="history-title">历史 Doodle</h1>
+        </header>
+
+        <ol class="timeline">
+          <li class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <time class="timeline-date" datetime="2026-04-04">2026年4月5日 · 清明</time>
+            <h2 class="timeline-heading">清明节</h2>
+            <a class="timeline-card" href="index.html#doodle">
+              <figure class="timeline-card-img-wrap">
+                <img class="timeline-card-img" src="image/doodle/qingming_festival_2026.png" alt="2026 清明节主题插画" width="750" height="400" loading="lazy">
+              </figure>
+              <div class="timeline-card-body">
+                <p class="timeline-card-excerpt">清明时节，春风和煦，万物吐故纳新。缅怀先人、踏青赏春，在烟雨蒙蒙的日子里驻足回望，亦珍惜当下、敬畏生命。</p>
+                <span class="timeline-card-cta">查看当期图文 →</span>
+              </div>
+            </a>
+          </li>
+        </ol>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

@@ -131,6 +131,12 @@
       background-color: rgba(139, 115, 85, 0.08);
     }
 
+    a.tab {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
     /* 内容区域 */
     main {
       padding: 0;
@@ -345,6 +351,82 @@
       color: var(--accent-hover);
     }
 
+    /* Doodle 面板 */
+    .doodle-header {
+      margin-bottom: 24px;
+    }
+
+    .doodle-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .doodle-feature {
+      background: var(--bg-card);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .doodle-feature-img-wrap {
+      margin: 0 0 24px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .doodle-feature-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+
+    .doodle-prose {
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--text);
+    }
+
+    .doodle-prose p {
+      margin: 0 0 1.15em;
+    }
+
+    .doodle-prose p:last-child {
+      margin-bottom: 0;
+    }
+
+    .doodle-history-cta {
+      margin-top: 28px;
+    }
+
+    .doodle-history-cta a {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s ease;
+    }
+
+    .doodle-history-cta a:hover {
+      color: var(--accent-hover);
+    }
+
+    .doodle-history-cta a::after {
+      content: '→';
+      font-family: system-ui, sans-serif;
+      font-weight: 400;
+      opacity: 0.85;
+    }
+
     @media (max-width: 768px) {
       :root {
         --nav-w: 108px;
@@ -396,8 +478,9 @@
       <span class="nav-brand-name">面条团的面条</span>
     </div>
     <div class="nav-menu">
-      <div class="tab" data-tab="stickers" aria-current="page">表情包</div>
+      <div class="tab" data-tab="doodle" aria-current="page">Doodle</div>
       <div class="tab" data-tab="articles">文章</div>
+      <div class="tab" data-tab="stickers">表情</div>
       <div class="tab" data-tab="contact">联系我</div>
     </div>
   </nav>
@@ -405,7 +488,70 @@
   <div class="page-body">
     <div class="container">
       <main>
-      <section id="stickers" class="panel active">
+      <section id="doodle" class="panel active">
+        <header class="doodle-header">
+          <h1 class="doodle-title">清明节</h1>
+        </header>
+        <div class="doodle-feature">
+          <figure class="doodle-feature-img-wrap">
+            <img class="doodle-feature-img" src="image/doodle/qingming_festival_2026.png" alt="清明时节主题插画" width="750" height="400" loading="lazy">
+          </figure>
+          <div class="doodle-prose">
+            <p>清明时节，春风和煦，万物吐故纳新。这不仅是一个缅怀先人、寄托哀思的肃穆时刻，更是踏青赏春、感受生命律动的时节。</p>
+            <p>在这烟雨蒙蒙的日子里，我们停下匆匆的脚步，回望来时的路。一束素菊，一缕清香，承载着对故人的无尽思念与深深敬意。那些曾经的温暖与教诲，如同春日里的微风，拂过心田，化作前行的力量。</p>
+            <p>同时，清明也提醒着我们珍惜当下。在缅怀中感恩，在春光中前行。让我们带着对生命的敬畏与热爱，拥抱这生机勃勃的春天，让心灵在宁静与平和中得到慰藉与升华。愿逝者安息，生者如斯，岁岁清明，皆是清明。</p>
+          </div>
+        </div>
+        <p class="doodle-history-cta">
+          <a href="doodle_history.html">历史 Doodle</a>
+        </p>
+      </section>
+
+      <section id="articles" class="panel">
+        <div class="article-list">
+          <a href="articles/yunnan_travel_3.html" class="article-card">
+            <div class="article-card-inner">
+              <div class="article-card-cover">
+                <img src="image/article/yuannan_travel_3/travel_11.webp" alt="我在云南吹风的日子（三）" onerror="this.parentElement.querySelector('.article-card-placeholder').style.display='flex'; this.style.display='none';">
+                <div class="article-card-placeholder" style="display:none;">图</div>
+              </div>
+              <div class="article-card-meta">
+                <h3 class="article-card-title">我在云南吹风的日子（三）</h3>
+                <p class="article-card-desc">崇圣寺三塔与崇圣寺：千寻塔「永镇山川」、中轴对称之美；雨铜观音殿纳凉远眺，阿嵯观音阁顶层望洱海。与学弟话别后环洱海巴士赴双廊，夜宿双廊古镇。</p>
+                <span class="article-card-date">面条团的面条 · 2026-03-25</span>
+              </div>
+            </div>
+          </a>
+          <a href="articles/yunnan_travel_2.html" class="article-card">
+            <div class="article-card-inner">
+              <div class="article-card-cover">
+                <img src="image/article/20.webp" alt="我在云南吹风的日子（二）" onerror="this.parentElement.querySelector('.article-card-placeholder').style.display='flex'; this.style.display='none';">
+                <div class="article-card-placeholder" style="display:none;">图</div>
+              </div>
+              <div class="article-card-meta">
+                <h3 class="article-card-title">我在云南吹风的日子（二）</h3>
+                <p class="article-card-desc">从索道下来路过出口处，石头上刻的「苍山国家地质公园」天空蓝真好看。骑青桔穿过古城到洱海边，才村码头听人点歌歌唱，与苍山结识的学弟聊天直播；夜色里米线与电子篝火，古城温馨有序。</p>
+                <span class="article-card-date">面条团的面条 · 2026-03-25</span>
+              </div>
+            </div>
+          </a>
+          <a href="articles/yunnan_travel_1.html" class="article-card">
+            <div class="article-card-inner">
+              <div class="article-card-cover">
+                <img src="image/article/3.webp" alt="我在云南吹风的日子（一）" onerror="this.parentElement.querySelector('.article-card-placeholder').style.display='flex'; this.style.display='none';">
+                <div class="article-card-placeholder" style="display:none;">图</div>
+              </div>
+              <div class="article-card-meta">
+                <h3 class="article-card-title">我在云南吹风的日子（一）</h3>
+                <p class="article-card-desc">从北京到云南路途遥远，飞过去是最佳选择。虽说可以直飞大理，但我选择先飞昆明，坐高铁去大理。一来航班选择空间大，二来可以有更多的体验。27 号中午飞临昆明上空，窗外美如画，随着下降高度越来越低，可以看到土壤的颜色是红褐色，心里一阵暖意升起。</p>
+                <span class="article-card-date">面条团的面条 · 2026-03-24</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section id="stickers" class="panel">
         <div class="sticker-grid">
           <div class="sticker-card">
             <div class="sticker-cover-wrap">
@@ -527,56 +673,13 @@
         </div>
       </section>
 
-      <section id="articles" class="panel">
-        <div class="article-list">
-          <a href="articles/yunnan_travel_3.html" class="article-card">
-            <div class="article-card-inner">
-              <div class="article-card-cover">
-                <img src="image/article/yuannan_travel_3/travel_11.webp" alt="我在云南吹风的日子（三）" onerror="this.parentElement.querySelector('.article-card-placeholder').style.display='flex'; this.style.display='none';">
-                <div class="article-card-placeholder" style="display:none;">图</div>
-              </div>
-              <div class="article-card-meta">
-                <h3 class="article-card-title">我在云南吹风的日子（三）</h3>
-                <p class="article-card-desc">崇圣寺三塔与崇圣寺：千寻塔「永镇山川」、中轴对称之美；雨铜观音殿纳凉远眺，阿嵯观音阁顶层望洱海。与学弟话别后环洱海巴士赴双廊，夜宿双廊古镇。</p>
-                <span class="article-card-date">面条团的面条 · 2026-03-25</span>
-              </div>
-            </div>
-          </a>
-          <a href="articles/yunnan_travel_2.html" class="article-card">
-            <div class="article-card-inner">
-              <div class="article-card-cover">
-                <img src="image/article/20.webp" alt="我在云南吹风的日子（二）" onerror="this.parentElement.querySelector('.article-card-placeholder').style.display='flex'; this.style.display='none';">
-                <div class="article-card-placeholder" style="display:none;">图</div>
-              </div>
-              <div class="article-card-meta">
-                <h3 class="article-card-title">我在云南吹风的日子（二）</h3>
-                <p class="article-card-desc">从索道下来路过出口处，石头上刻的「苍山国家地质公园」天空蓝真好看。骑青桔穿过古城到洱海边，才村码头听人点歌歌唱，与苍山结识的学弟聊天直播；夜色里米线与电子篝火，古城温馨有序。</p>
-                <span class="article-card-date">面条团的面条 · 2026-03-25</span>
-              </div>
-            </div>
-          </a>
-          <a href="articles/yunnan_travel_1.html" class="article-card">
-            <div class="article-card-inner">
-              <div class="article-card-cover">
-                <img src="image/article/3.webp" alt="我在云南吹风的日子（一）" onerror="this.parentElement.querySelector('.article-card-placeholder').style.display='flex'; this.style.display='none';">
-                <div class="article-card-placeholder" style="display:none;">图</div>
-              </div>
-              <div class="article-card-meta">
-                <h3 class="article-card-title">我在云南吹风的日子（一）</h3>
-                <p class="article-card-desc">从北京到云南路途遥远，飞过去是最佳选择。虽说可以直飞大理，但我选择先飞昆明，坐高铁去大理。一来航班选择空间大，二来可以有更多的体验。27 号中午飞临昆明上空，窗外美如画，随着下降高度越来越低，可以看到土壤的颜色是红褐色，心里一阵暖意升起。</p>
-                <span class="article-card-date">面条团的面条 · 2026-03-24</span>
-              </div>
-            </div>
-          </a>
-        </div>
-      </section>
-
       <section id="contact" class="panel">
         <div class="contact-panel">
           <div class="contact-title">欢迎来信</div>
           <a href="mailto:stylejinmu@163.com" class="contact-email">stylejinmu@163.com</a>
         </div>
       </section>
+
       </main>
     </div>
   </div>
@@ -595,17 +698,21 @@
       });
     }
 
-    document.querySelectorAll('.tab').forEach(tab => {
+    document.querySelectorAll('.tab[data-tab]').forEach(tab => {
       tab.addEventListener('click', () => {
         switchTab(tab.dataset.tab);
-        history.replaceState(null, '', tab.dataset.tab ? '#' + tab.dataset.tab : location.pathname);
+        history.replaceState(null, '', '#' + tab.dataset.tab);
       });
     });
 
     if (location.hash) {
       const tabId = location.hash.slice(1);
       if (document.getElementById(tabId)) switchTab(tabId);
+    } else {
+      switchTab('doodle');
+      history.replaceState(null, '', '#doodle');
     }
+
   </script>
 </body>
 </html>
