@@ -7,6 +7,7 @@
   <meta name="description" content="面条团的表情包世界，包含徒步名山、周游海外、节气团子、吃货团子等多款微信表情专辑，欢迎下载使用。">
   <meta name="keywords" content="表情包,微信表情,面条团,徒步名山,周游海外,节气团子,吃货团子">
   <meta name="author" content="面条团">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="canonical" href="https://stylejinmu.github.io/">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -32,6 +33,8 @@
       --border: #e8e6e3;
       --shadow: 0 2px 12px rgba(0,0,0,0.06);
       --shadow-hover: 0 8px 24px rgba(0,0,0,0.1);
+      --nav-w: 156px;
+      --content-max: 960px;
     }
 
     * {
@@ -54,45 +57,78 @@
       padding: 0 24px;
     }
 
-    /* 顶部 Tab 导航 */
-    header {
-      padding: 48px 0 32px;
-      border-bottom: 1px solid var(--border);
+    /* 左侧固定导航：上 logo（圆角）、名称、下菜单 */
+    .page-body {
+      margin-left: var(--nav-w);
+      padding-top: 32px;
+      min-height: 100vh;
+      padding-bottom: 48px;
     }
 
-    .tabs {
+    .nav-brand {
       display: flex;
-      gap: 48px;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      padding: 0 4px;
+    }
+
+    .nav-brand-logo {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .nav-brand-name {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.35;
+      letter-spacing: 0.04em;
+      text-align: center;
+      overflow-wrap: break-word;
+    }
+
+    .nav-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    nav.tabs {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: var(--nav-w);
+      z-index: 100;
+      padding: 28px 12px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      box-sizing: border-box;
+      border-right: 1px solid var(--border);
+      background: var(--bg);
     }
 
     .tab {
       font-family: 'Noto Serif SC', serif;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 600;
       color: var(--text-muted);
       cursor: pointer;
-      padding: 8px 0;
-      position: relative;
-      transition: color 0.2s ease;
+      padding: 8px 8px 8px 12px;
+      border-radius: 6px;
+      transition: color 0.2s ease, background-color 0.2s ease;
+      white-space: nowrap;
     }
 
     .tab:hover {
-      color: var(--text);
-    }
-
-    .tab.active {
       color: var(--accent);
-    }
-
-    .tab.active::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--accent);
+      background-color: rgba(139, 115, 85, 0.08);
     }
 
     /* 内容区域 */
@@ -309,15 +345,43 @@
       color: var(--accent-hover);
     }
 
-    @media (max-width: 600px) {
-      .tabs {
-        gap: 32px;
+    @media (max-width: 768px) {
+      :root {
+        --nav-w: 108px;
+      }
+
+      nav.tabs {
+        left: 0;
+        padding: 20px 8px 16px;
+      }
+
+      .nav-brand {
+        margin-bottom: 20px;
+        gap: 8px;
+      }
+
+      .nav-brand-logo {
+        width: 44px;
+        height: 44px;
+      }
+
+      .nav-brand-name {
+        font-size: 13px;
+        letter-spacing: 0.03em;
+      }
+
+      .page-body {
+        margin-left: var(--nav-w);
+        padding-top: 24px;
       }
 
       .tab {
-        font-size: 16px;
+        font-size: 14px;
+        padding: 6px 4px 6px 8px;
       }
+    }
 
+    @media (max-width: 600px) {
       .sticker-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
@@ -326,16 +390,21 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <nav class="tabs">
-        <div class="tab active" data-tab="stickers">表情包</div>
-        <div class="tab" data-tab="articles">文章</div>
-        <div class="tab" data-tab="contact">联系我</div>
-      </nav>
-    </header>
+  <nav class="tabs" aria-label="主导航">
+    <div class="nav-brand">
+      <img class="nav-brand-logo" src="image/logo.png" alt="面条团的面条">
+      <span class="nav-brand-name">面条团的面条</span>
+    </div>
+    <div class="nav-menu">
+      <div class="tab" data-tab="stickers" aria-current="page">表情包</div>
+      <div class="tab" data-tab="articles">文章</div>
+      <div class="tab" data-tab="contact">联系我</div>
+    </div>
+  </nav>
 
-    <main>
+  <div class="page-body">
+    <div class="container">
+      <main>
       <section id="stickers" class="panel active">
         <div class="sticker-grid">
           <div class="sticker-card">
@@ -508,13 +577,18 @@
           <a href="mailto:stylejinmu@163.com" class="contact-email">stylejinmu@163.com</a>
         </div>
       </section>
-    </main>
+      </main>
+    </div>
   </div>
 
   <script>
     function switchTab(tabId) {
       document.querySelectorAll('.tab').forEach(t => {
-        t.classList.toggle('active', t.dataset.tab === tabId);
+        if (t.dataset.tab === tabId) {
+          t.setAttribute('aria-current', 'page');
+        } else {
+          t.removeAttribute('aria-current');
+        }
       });
       document.querySelectorAll('.panel').forEach(p => {
         p.classList.toggle('active', p.id === tabId);
