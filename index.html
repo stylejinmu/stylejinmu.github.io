@@ -222,6 +222,192 @@
       color: var(--text);
     }
 
+    /* 表情页：三格聚焦轮播（中正大、两侧缩小） */
+    .sticker-page {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .sticker-carousel {
+      margin: 0 -12px;
+      padding: 0 0 20px;
+    }
+
+    .sticker-carousel-status {
+      font-size: 15px;
+      color: var(--text);
+      text-align: center;
+      margin: 0 0 14px;
+      line-height: 1.5;
+    }
+
+    .sticker-carousel-status strong {
+      font-weight: 600;
+      font-family: 'Noto Serif SC', serif;
+      color: var(--text);
+    }
+
+    .sticker-carousel-shell {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sticker-carousel-viewport {
+      flex: 1;
+      min-width: 0;
+      overflow-x: hidden;
+      outline: none;
+    }
+
+    .sticker-carousel-viewport:focus-visible {
+      box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+      border-radius: 16px;
+    }
+
+    .sticker-carousel-stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: min(72vw, 340px);
+      padding: 8px 0 16px;
+      perspective: 1100px;
+      perspective-origin: 50% 42%;
+    }
+
+    .sticker-carousel-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(10px, 3vw, 24px);
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+    }
+
+    .sticker-carousel-slot {
+      flex: 1 1 28%;
+      max-width: 228px;
+      min-width: 0;
+      transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.4s ease;
+      transform: scale(0.9);
+      opacity: 0.94;
+      cursor: pointer;
+    }
+
+    .sticker-carousel-slot .sticker-card {
+      margin: 0 auto;
+      max-width: 100%;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+    }
+
+    .sticker-carousel-slot--main {
+      flex: 1 1 40%;
+      max-width: 280px;
+      transform: scale(1);
+      opacity: 1;
+      z-index: 2;
+      cursor: default;
+    }
+
+    .sticker-carousel-slot--main .sticker-card {
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.14);
+    }
+
+    .sticker-carousel-slot--main .sticker-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .sticker-carousel-slot--side .sticker-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .sticker-carousel-slot--empty {
+      visibility: hidden;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    .sticker-carousel-btn {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      background: var(--bg-card);
+      color: var(--accent);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .sticker-carousel-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: var(--shadow-hover);
+    }
+
+    .sticker-carousel-btn:active {
+      transform: scale(0.96);
+    }
+
+    .sticker-carousel-dots {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 0 12px;
+    }
+
+    .sticker-carousel-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .sticker-carousel-dot:hover {
+      background: rgba(139, 115, 85, 0.45);
+    }
+
+    .sticker-carousel-dot.is-active {
+      background: var(--accent);
+      transform: scale(1.25);
+      box-shadow: 0 0 0 2px rgba(139, 115, 85, 0.25);
+    }
+
+    @media (max-width: 600px) {
+      .sticker-carousel-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+      }
+
+      .sticker-carousel {
+        margin: 0 -8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sticker-carousel-slot {
+        transition: none;
+      }
+
+      .sticker-carousel-slot--main .sticker-card:hover,
+      .sticker-carousel-slot--side .sticker-card:hover {
+        transform: none;
+      }
+    }
+
     /* 文章列表 */
     .article-list {
       display: flex;
@@ -457,9 +643,20 @@
     }
 
     @media (max-width: 600px) {
-      .sticker-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+      .sticker-carousel-stage {
+        min-height: min(78vw, 300px);
+      }
+
+      .sticker-carousel-row {
+        gap: 6px;
+      }
+
+      .sticker-carousel-slot {
+        transform: scale(0.86);
+      }
+
+      .sticker-carousel-slot--main {
+        transform: scale(1);
       }
     }
   </style>
@@ -523,6 +720,290 @@
         panelEl.id = tabId;
         panelEl.innerHTML = html;
         panelEl.setAttribute('aria-label', navLabel(tabId));
+        if (tabId === 'stickers') {
+          requestAnimationFrame(function () {
+            initStickerCarousel(panelEl);
+          });
+        }
+      }
+
+      function initStickerCarousel(root) {
+        var showcase = root.querySelector('.sticker-showcase');
+        var grid = root.querySelector('.sticker-grid');
+        if (!showcase || !grid) return;
+        var cards = [].slice.call(grid.querySelectorAll('.sticker-card'));
+        var n = cards.length;
+        if (!n) return;
+
+        var currentIdx = 0;
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var slideDir = 0;
+        var slideAnimGen = 0;
+        var slideRollHandler1 = null;
+        var slideRollHandler2 = null;
+        var slideFallbackTimer = null;
+
+        function escapeStickerTitle(s) {
+          return String(s)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+        }
+
+        var carousel = document.createElement('div');
+        carousel.className = 'sticker-carousel';
+        carousel.innerHTML =
+          '<p class="sticker-carousel-status" aria-live="polite"></p>' +
+          '<div class="sticker-carousel-shell">' +
+          '<button type="button" class="sticker-carousel-btn sticker-carousel-prev" aria-label="上一张">‹</button>' +
+          '<div class="sticker-carousel-viewport" tabindex="0" role="region" aria-roledescription="轮播">' +
+          '<div class="sticker-carousel-stage">' +
+          '<div class="sticker-carousel-row">' +
+          '<div class="sticker-carousel-slot sticker-carousel-slot--prev"></div>' +
+          '<div class="sticker-carousel-slot sticker-carousel-slot--main"></div>' +
+          '<div class="sticker-carousel-slot sticker-carousel-slot--next"></div>' +
+          '</div></div></div>' +
+          '<button type="button" class="sticker-carousel-btn sticker-carousel-next" aria-label="下一张">›</button>' +
+          '</div>' +
+          '<div class="sticker-carousel-dots" role="tablist" aria-label="跳转到指定表情"></div>';
+
+        var statusEl = carousel.querySelector('.sticker-carousel-status');
+        var viewport = carousel.querySelector('.sticker-carousel-viewport');
+        var dotsWrap = carousel.querySelector('.sticker-carousel-dots');
+        var prevBtn = carousel.querySelector('.sticker-carousel-prev');
+        var nextBtn = carousel.querySelector('.sticker-carousel-next');
+        var prevSlot = carousel.querySelector('.sticker-carousel-slot--prev');
+        var mainSlot = carousel.querySelector('.sticker-carousel-slot--main');
+        var nextSlot = carousel.querySelector('.sticker-carousel-slot--next');
+        var stage = carousel.querySelector('.sticker-carousel-stage');
+        var row = carousel.querySelector('.sticker-carousel-row');
+
+        showcase.appendChild(carousel);
+
+        cards.forEach(function (card, i) {
+          var dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'sticker-carousel-dot';
+          var titleText = (card.querySelector('.sticker-title') || {}).textContent || '';
+          dot.setAttribute('aria-label', '第 ' + (i + 1) + ' 张：' + titleText.trim());
+          dot.setAttribute('role', 'tab');
+          dotsWrap.appendChild(dot);
+        });
+
+        var dots = dotsWrap.querySelectorAll('.sticker-carousel-dot');
+
+        function updateDots() {
+          if (!viewport.isConnected) return;
+          dots.forEach(function (d, j) {
+            var on = j === currentIdx;
+            d.classList.toggle('is-active', on);
+            d.setAttribute('aria-selected', on ? 'true' : 'false');
+          });
+        }
+
+        function clearSlideAnimTimers() {
+          if (slideFallbackTimer) {
+            clearTimeout(slideFallbackTimer);
+            slideFallbackTimer = null;
+          }
+        }
+
+        function clearSlideListeners() {
+          if (slideRollHandler1) {
+            row.removeEventListener('transitionend', slideRollHandler1);
+            slideRollHandler1 = null;
+          }
+          if (slideRollHandler2) {
+            row.removeEventListener('transitionend', slideRollHandler2);
+            slideRollHandler2 = null;
+          }
+        }
+
+        function resetRowTransform() {
+          row.style.transition = '';
+          row.style.transform = '';
+        }
+
+        function rollT(ry, rx, tz, sc) {
+          return (
+            'rotateY(' +
+            ry +
+            'deg) rotateX(' +
+            rx +
+            'deg) translateZ(' +
+            tz +
+            'px) scale(' +
+            sc +
+            ')'
+          );
+        }
+
+        function updateStatus() {
+          var titleText = (cards[currentIdx].querySelector('.sticker-title') || {}).textContent || '';
+          titleText = titleText.trim() || '未命名';
+          statusEl.innerHTML =
+            '当前：' +
+            '<strong>' +
+            escapeStickerTitle(titleText) +
+            '</strong>（' +
+            (currentIdx + 1) +
+            ' / ' +
+            n +
+            '）';
+        }
+
+        function swapSlotContent() {
+          prevSlot.className = 'sticker-carousel-slot sticker-carousel-slot--prev';
+          mainSlot.className = 'sticker-carousel-slot sticker-carousel-slot--main';
+          nextSlot.className = 'sticker-carousel-slot sticker-carousel-slot--next';
+          prevSlot.innerHTML = '';
+          mainSlot.innerHTML = '';
+          nextSlot.innerHTML = '';
+
+          if (n === 1) {
+            prevSlot.classList.add('sticker-carousel-slot--empty');
+            nextSlot.classList.add('sticker-carousel-slot--empty');
+            mainSlot.appendChild(cards[0].cloneNode(true));
+          } else if (n === 2) {
+            prevSlot.classList.add('sticker-carousel-slot--side');
+            nextSlot.classList.add('sticker-carousel-slot--side');
+            var other = 1 - currentIdx;
+            prevSlot.appendChild(cards[other].cloneNode(true));
+            mainSlot.appendChild(cards[currentIdx].cloneNode(true));
+            nextSlot.appendChild(cards[other].cloneNode(true));
+          } else {
+            prevSlot.classList.add('sticker-carousel-slot--side');
+            nextSlot.classList.add('sticker-carousel-slot--side');
+            var pi = (currentIdx - 1 + n) % n;
+            var ni = (currentIdx + 1) % n;
+            prevSlot.appendChild(cards[pi].cloneNode(true));
+            mainSlot.appendChild(cards[currentIdx].cloneNode(true));
+            nextSlot.appendChild(cards[ni].cloneNode(true));
+          }
+
+          viewport.setAttribute('aria-label', '表情封面轮播，共 ' + n + ' 张，当前第 ' + (currentIdx + 1) + ' 张');
+          updateDots();
+          updateStatus();
+        }
+
+        function render(options) {
+          var useAnim = options && options.animate && !reduceMotion && n > 1 && slideDir !== 0;
+
+          if (!useAnim) {
+            clearSlideListeners();
+            clearSlideAnimTimers();
+            resetRowTransform();
+            swapSlotContent();
+            slideDir = 0;
+            return;
+          }
+
+          slideAnimGen++;
+          var gen = slideAnimGen;
+          clearSlideListeners();
+          clearSlideAnimTimers();
+          resetRowTransform();
+          void row.offsetHeight;
+
+          var dir = slideDir;
+          var rotY = 26;
+          var rotX = 3.2 * dir;
+          var tz = -42;
+          var scMid = 0.93;
+
+          row.style.transition = 'transform 0.3s cubic-bezier(0.45, 0, 0.55, 1)';
+          row.style.transform = rollT(-rotY * dir, rotX, tz, scMid);
+
+          slideRollHandler1 = function (e) {
+            if (e.target !== row || e.propertyName !== 'transform') return;
+            if (gen !== slideAnimGen) return;
+            row.removeEventListener('transitionend', slideRollHandler1);
+            slideRollHandler1 = null;
+
+            swapSlotContent();
+
+            row.style.transition = 'none';
+            row.style.transform = rollT(rotY * dir, -rotX, tz, scMid);
+            void row.offsetHeight;
+            row.style.transition = 'transform 0.38s cubic-bezier(0.22, 1, 0.36, 1)';
+            row.style.transform = rollT(0, 0, 0, 1);
+
+            slideRollHandler2 = function (e2) {
+              if (e2.target !== row || e2.propertyName !== 'transform') return;
+              if (gen !== slideAnimGen) return;
+              clearSlideAnimTimers();
+              row.removeEventListener('transitionend', slideRollHandler2);
+              slideRollHandler2 = null;
+              resetRowTransform();
+              slideDir = 0;
+            };
+            row.addEventListener('transitionend', slideRollHandler2);
+          };
+          row.addEventListener('transitionend', slideRollHandler1);
+
+          slideFallbackTimer = setTimeout(function () {
+            slideFallbackTimer = null;
+            if (gen !== slideAnimGen || !viewport.isConnected) return;
+            clearSlideListeners();
+            swapSlotContent();
+            resetRowTransform();
+            slideDir = 0;
+          }, 900);
+        }
+
+        function goTo(idx) {
+          var next = ((idx % n) + n) % n;
+          if (next === currentIdx) return;
+          var raw = next - currentIdx;
+          if (raw > n / 2) raw -= n;
+          if (raw < -n / 2) raw += n;
+          if (Math.abs(raw) === 1) {
+            slideDir = raw > 0 ? 1 : -1;
+          } else {
+            slideDir = 0;
+          }
+          currentIdx = next;
+          render({ animate: true });
+        }
+
+        prevBtn.addEventListener('click', function () {
+          if (n <= 1) return;
+          goTo(currentIdx - 1);
+        });
+        nextBtn.addEventListener('click', function () {
+          if (n <= 1) return;
+          goTo(currentIdx + 1);
+        });
+        dots.forEach(function (dot, i) {
+          dot.addEventListener('click', function () {
+            goTo(i);
+          });
+        });
+
+        viewport.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            prevBtn.click();
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            nextBtn.click();
+          }
+        });
+
+        row.addEventListener('click', function (e) {
+          if (n <= 1) return;
+          var slot = e.target.closest('.sticker-carousel-slot');
+          if (!slot || slot.classList.contains('sticker-carousel-slot--main')) return;
+          if (slot.classList.contains('sticker-carousel-slot--empty')) return;
+          if (slot.classList.contains('sticker-carousel-slot--prev')) {
+            goTo(currentIdx - 1);
+          } else if (slot.classList.contains('sticker-carousel-slot--next')) {
+            goTo(currentIdx + 1);
+          }
+        });
+
+        render({ animate: false });
       }
 
       function switchTab(tabId) {
