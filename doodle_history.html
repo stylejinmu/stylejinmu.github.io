@@ -172,7 +172,9 @@
     }
 
     .timeline-card {
-      display: block;
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
       background: var(--bg-card);
       border-radius: 12px;
       box-shadow: var(--shadow);
@@ -194,9 +196,17 @@
     }
 
     .timeline-card-img-wrap {
+      flex: 0 0 260px;
+      width: 260px;
+      max-width: 260px;
       margin: 0;
       background: #fff;
-      border-bottom: 1px solid var(--border);
+      border: none;
+      border-right: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
     .timeline-card-img {
@@ -207,7 +217,12 @@
     }
 
     .timeline-card-body {
+      flex: 1;
+      min-width: 0;
       padding: 16px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .timeline-card-excerpt {
@@ -235,6 +250,18 @@
       .nav-brand-name { font-size: 13px; }
       .page-body { padding-top: 24px; }
       .tab { font-size: 14px; padding: 6px 4px 6px 8px; }
+
+      .timeline-card {
+        flex-direction: column;
+      }
+
+      .timeline-card-img-wrap {
+        flex: none;
+        width: 100%;
+        max-width: none;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
     }
   </style>
 </head>
@@ -260,6 +287,20 @@
         </header>
 
         <ol class="timeline">
+          <li class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <time class="timeline-date" datetime="2026-05-05">2026年5月5日 · 立夏</time>
+            <h2 class="timeline-heading">立夏</h2>
+            <a class="timeline-card" href="/#doodle">
+              <figure class="timeline-card-img-wrap">
+                <img class="timeline-card-img" src="image/doodle/start_of_summer_2026.png" alt="2026 立夏主题插画" width="750" height="400" loading="lazy">
+              </figure>
+              <div class="timeline-card-body">
+                <p class="timeline-card-excerpt">立夏时节，夏天的清凉。夏季的第一个节气，荷塘莲开、柳拂蜻蜓，廊下清风带走初夏暑意；愿你的每一个夏天，都有一片属于自己的清凉之地。</p>
+                <span class="timeline-card-cta">查看当期图文 →</span>
+              </div>
+            </a>
+          </li>
           <li class="timeline-item">
             <span class="timeline-dot" aria-hidden="true"></span>
             <time class="timeline-date" datetime="2026-04-04">2026年4月5日 · 清明</time>
