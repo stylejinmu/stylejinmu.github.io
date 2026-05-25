@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy / 隐私权政策 — 爱你三千年</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7f8fc;
+      --card: #ffffff;
+      --text: #1a1a2e;
+      --muted: #5c6370;
+      --accent: #4f6ef7;
+      --border: #e4e7ef;
+      --code-bg: #f0f2f8;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1117;
+        --card: #171a22;
+        --text: #eef0f6;
+        --muted: #a0a8b8;
+        --accent: #7b93ff;
+        --border: #2a3040;
+        --code-bg: #222733;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+        Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+
+    header {
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 1.75rem;
+      line-height: 1.3;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 8px;
+      margin: 24px 0 0;
+    }
+
+    .lang-switch button {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .lang-switch button.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 28px 8px;
+      margin-bottom: 20px;
+    }
+
+    .lang-section {
+      display: none;
+    }
+
+    .lang-section.active {
+      display: block;
+    }
+
+    h2 {
+      margin: 28px 0 12px;
+      font-size: 1.15rem;
+    }
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    p, li {
+      color: var(--text);
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    ul {
+      margin: 0 0 16px;
+      padding-left: 1.35rem;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    code {
+      background: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.88em;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    footer {
+      margin-top: 32px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Privacy Policy / 隐私权政策</h1>
+      <p class="subtitle">爱你三千年 · AI Web Translation Assistant</p>
+      <div class="lang-switch">
+        <button type="button" id="btn-zh" class="active" aria-pressed="true">中文</button>
+        <button type="button" id="btn-en" aria-pressed="false">English</button>
+      </div>
+    </header>
+
+    <div class="card">
+      <section id="zh" class="lang-section active" lang="zh-CN">
+        <p><strong>最后更新：</strong>2026 年 5 月 25 日</p>
+        <p>
+          本隐私权政策说明浏览器扩展「爱你三千年」（以下简称「本扩展」）如何处理与您相关的信息。
+          开发者（「我们」）不运营用于接收或存储用户数据的中央服务器。
+          使用本扩展即表示您同意本政策；若不同意，请卸载并停止使用。
+        </p>
+
+        <h2>1. 我们处理哪些信息</h2>
+        <p>本扩展可能涉及以下类型的信息：</p>
+        <ul>
+          <li>
+            <strong>本地配置信息：</strong>您填写的 API 地址、模型名称、API Key，以及默认源语言、目标语言、翻译风格等偏好。
+            这些信息保存在您设备上的浏览器本地存储（<code>chrome.storage.local</code>）中。
+          </li>
+          <li>
+            <strong>待翻译的网页文本：</strong>当您主动发起翻译（包括划词翻译、整页翻译或右键菜单翻译）时，
+            本扩展会读取当前页面中需要翻译的可见文本，或您选中的文本。
+          </li>
+          <li>
+            <strong>网页访问上下文：</strong>为实现翻译功能，本扩展需要在您浏览的网页中注入内容脚本并读取页面 DOM 文本。
+            我们不以收集、上传或分析您的浏览历史为目的。
+          </li>
+        </ul>
+        <p>本扩展<strong>不会</strong>向开发者服务器发送上述信息。我们也不收集姓名、邮箱、电话号码等账户信息（本扩展不提供独立账号注册）。</p>
+
+        <h2>2. 我们如何使用这些信息</h2>
+        <ul>
+          <li>保存您的 API 配置与偏好，以便下次使用时无需重复填写。</li>
+          <li>在您点击翻译或触发右键菜单时，将待翻译文本发送至<strong>您自行配置的</strong> OpenAI 兼容 API（请求路径为 <code>{API 地址}/chat/completions</code>），并展示返回的译文。</li>
+          <li>在扩展界面中显示连接测试、错误提示与翻译进度等状态信息。</li>
+        </ul>
+
+        <h2>3. 信息的存储与保留</h2>
+        <ul>
+          <li>API 配置与偏好仅存储在您的浏览器本地，不会同步至我们的服务器。</li>
+          <li>您可在扩展设置中修改或清空 API Key 等配置；卸载扩展后，本地数据是否保留取决于浏览器行为。</li>
+          <li>翻译过程中的文本仅在功能执行期间于内存中使用，本扩展不会将其持久化保存到开发者侧。</li>
+        </ul>
+
+        <h2>4. 第三方服务</h2>
+        <p>
+          翻译请求由您选择的第三方 AI 服务提供商处理（例如 OpenAI 兼容接口的运营商）。
+          该等服务商如何收集、使用、保留和保护数据，受其各自隐私政策与服务条款约束，不在本扩展开发者控制范围内。
+          请在配置 API 前自行阅读并评估您所使用服务的隐私与安全措施。
+        </p>
+        <p>本扩展本身不包含广告、分析追踪 SDK，也不向第三方出售您的个人信息。</p>
+
+        <h2>5. 权限说明</h2>
+        <p>为实现上述功能，本扩展声明以下浏览器权限：</p>
+        <ul>
+          <li><code>storage</code>：在本地保存设置与偏好。</li>
+          <li><code>contextMenus</code>：提供选中文本的右键翻译入口。</li>
+          <li><code>activeTab</code>：与当前活动标签页通信以执行翻译。</li>
+          <li><code>&lt;all_urls&gt;</code>（主机权限）：在网页中注入脚本并读取待翻译文本。</li>
+        </ul>
+        <p>请您知悉：网页内容可能包含个人或敏感信息。请勿在不可信页面或含机密信息的场景中使用翻译功能。</p>
+
+        <h2>6. 您的选择与权利</h2>
+        <ul>
+          <li>您可自主选择是否配置 API、是否发起翻译，以及使用哪家 API 服务商。</li>
+          <li>您可随时在设置中更新或删除 API Key 与其他配置。</li>
+          <li>您可随时卸载本扩展以停止数据处理。</li>
+        </ul>
+
+        <h2>7. 儿童隐私</h2>
+        <p>本扩展不面向 13 周岁以下儿童。我们不会有意收集儿童的个人信息。</p>
+
+        <h2>8. 政策变更</h2>
+        <p>
+          我们可能因功能更新或法律要求修订本政策。更新后的版本将发布于本页面并更新「最后更新」日期。
+          重大变更时，我们可能通过扩展更新说明或其他合理方式提示您。继续使用本扩展即视为接受修订后的政策。
+        </p>
+
+        <h2>9. 联系我们</h2>
+        <p>
+          如对本隐私权政策或数据处理有任何疑问，请通过以下方式联系开发者：
+        </p>
+        <ul>
+          <li>扩展内「反馈」入口：<a href="https://my.feishu.cn/share/base/form/shrcn5qx8uiQSBlffNX5c8QHV7f" rel="noopener noreferrer">提交反馈表单</a></li>
+        </ul>
+      </section>
+
+      <section id="en" class="lang-section" lang="en">
+        <p><strong>Last updated:</strong> May 25, 2026</p>
+        <p>
+          This Privacy Policy describes how the browser extension “爱你三千年” / “Love You Three Thousand Years”
+          (the “Extension”) handles information related to you.
+          The developer (“we”) does not operate a central server to receive or store user data.
+          By using the Extension, you agree to this Policy. If you do not agree, please uninstall and stop using it.
+        </p>
+
+        <h2>1. Information We Process</h2>
+        <p>The Extension may involve the following types of information:</p>
+        <ul>
+          <li>
+            <strong>Local configuration:</strong> API base URL, model name, API key, and preferences such as
+            default source language, target language, and translation style.
+            This is stored locally on your device via <code>chrome.storage.local</code>.
+          </li>
+          <li>
+            <strong>Web page text to be translated:</strong> When you actively start a translation (selection popup,
+            full-page translation, or context menu), the Extension reads visible text on the current page or text you selected.
+          </li>
+          <li>
+            <strong>Page access context:</strong> To provide translation, the Extension injects content scripts and reads DOM text
+            on pages you visit. We do not collect, upload, or analyze your browsing history for that purpose.
+          </li>
+        </ul>
+        <p>
+          The Extension does <strong>not</strong> send the above information to the developer’s servers.
+          We do not collect account details such as name, email, or phone number (the Extension has no standalone account registration).
+        </p>
+
+        <h2>2. How We Use Information</h2>
+        <ul>
+          <li>Store your API settings and preferences so you do not need to re-enter them each time.</li>
+          <li>
+            When you translate, send text to the <strong>third-party OpenAI-compatible API you configure</strong>
+            (at <code>{API base URL}/chat/completions</code>) and display the returned translation.
+          </li>
+          <li>Show connection tests, errors, and translation progress in the Extension UI.</li>
+        </ul>
+
+        <h2>3. Storage and Retention</h2>
+        <ul>
+          <li>API settings and preferences are stored only in your browser locally, not on our servers.</li>
+          <li>You may update or clear your API key and other settings in the Extension. After uninstallation, whether local data remains depends on your browser.</li>
+          <li>Text processed during translation is used in memory for the operation; the developer does not persistently store it.</li>
+        </ul>
+
+        <h2>4. Third-Party Services</h2>
+        <p>
+          Translation requests are handled by the AI service provider you choose (e.g., an OpenAI-compatible API operator).
+          How that provider collects, uses, retains, and protects data is governed by its own privacy policy and terms,
+          outside the developer’s control. Please review the provider’s policies before configuring your API.
+        </p>
+        <p>The Extension does not include ads, analytics tracking SDKs, or sale of personal information to third parties.</p>
+
+        <h2>5. Permissions</h2>
+        <p>The Extension requests the following browser permissions:</p>
+        <ul>
+          <li><code>storage</code> — save settings and preferences locally.</li>
+          <li><code>contextMenus</code> — offer right-click translation for selected text.</li>
+          <li><code>activeTab</code> — communicate with the active tab to run translation.</li>
+          <li><code>&lt;all_urls&gt;</code> (host permission) — inject scripts and read text on web pages.</li>
+        </ul>
+        <p>Web pages may contain personal or sensitive information. Use translation carefully on untrusted pages or where confidentiality matters.</p>
+
+        <h2>6. Your Choices</h2>
+        <ul>
+          <li>You choose whether to configure an API, when to translate, and which provider to use.</li>
+          <li>You may update or delete your API key and other settings at any time.</li>
+          <li>You may uninstall the Extension at any time to stop processing.</li>
+        </ul>
+
+        <h2>7. Children’s Privacy</h2>
+        <p>The Extension is not directed to children under 13. We do not knowingly collect children’s personal information.</p>
+
+        <h2>8. Changes to This Policy</h2>
+        <p>
+          We may update this Policy for product or legal reasons. The revised version will be posted on this page with an updated “Last updated” date.
+          For material changes, we may notify you through release notes or other reasonable means. Continued use means you accept the updated Policy.
+        </p>
+
+        <h2>9. Contact Us</h2>
+        <p>If you have questions about this Privacy Policy or data handling, contact the developer via:</p>
+        <ul>
+          <li>In-extension feedback: <a href="https://my.feishu.cn/share/base/form/shrcn5qx8uiQSBlffNX5c8QHV7f" rel="noopener noreferrer">Feedback form</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <footer>
+      Copyright © 2026 面条团的面条. All Rights Reserved.
+    </footer>
+  </div>
+
+  <script>
+    const btnZh = document.getElementById('btn-zh');
+    const btnEn = document.getElementById('btn-en');
+    const sectionZh = document.getElementById('zh');
+    const sectionEn = document.getElementById('en');
+
+    function setLang(lang) {
+      const isZh = lang === 'zh';
+      sectionZh.classList.toggle('active', isZh);
+      sectionEn.classList.toggle('active', !isZh);
+      btnZh.classList.toggle('active', isZh);
+      btnEn.classList.toggle('active', !isZh);
+      btnZh.setAttribute('aria-pressed', String(isZh));
+      btnEn.setAttribute('aria-pressed', String(!isZh));
+      document.documentElement.lang = isZh ? 'zh-CN' : 'en';
+    }
+
+    btnZh.addEventListener('click', () => setLang('zh'));
+    btnEn.addEventListener('click', () => setLang('en'));
+  </script>
+</body>
+</html>
